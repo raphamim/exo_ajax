@@ -38,23 +38,26 @@ $query = 'SELECT * FROM message';
 			}
 
 		if ( !empty($_POST['message']) ) {
-				$sent= $pdo->prepare('INSERT INTO `message` ( `author`, `content`, `date_mess`) VALUES ( :author, :content, :date_mess' );
+			// POUR TESTER
+			echo json_encode($_POST['message']);
+			// INSERE DS LA BDD
+				$sent= $pdo->prepare('INSERT INTO `message` ( `author`, `content`, `date_mess`) VALUES ( :author, :content, :date_mess)' );
 				$sent->execute(array(
 						'author' => $author,
 						'content' =>  $content,
 						'date_mess' => $now
 					));
+
 		}
-		
- 	}
+	}
 
  	// public function getMessage() {
 			 		
  	// }
 
  }
-	$ajax = new Ajax();
- $ajax->sendMessage();
+$ajax = new Ajax();
+$ajax->sendMessage();
 	
 
 
