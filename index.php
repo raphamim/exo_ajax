@@ -15,23 +15,13 @@
 
 		<section id="chat">
 				<div id="chat-block">
-					<div class="messages">
-						<h3>Paul</h3>
-						<p>Salut comment ça va ????</p>
-					</div>
-					<div class="messages">
-						<h3>pierre</h3>
-						<p>ça va bien et toi???</p>
-					</div>
-					<!-- EN TRAIN D'ECRIRE
-					<div class="messages trois-points">
-						<p>...</p>
-					</div> -->
 					
 
 					
 				</div>
-				<input id="message">
+				
+				<input type="text" id="message">
+				
 		</section>
 
 		</body>
