@@ -14,10 +14,20 @@ padding-bottom: 4%;
 
 #welcome {
     text-align: center;
-    display: none;
+   
 }
+
+#pseudo {
+    background-color: #b7c2ce;
+    border-radius: 50%;
+    padding: 2%;
+    border: none;
+    text-align: center;
+}
+
 #chat {
     text-align: center;
+     display: none;
 }
 
 #chat-block {

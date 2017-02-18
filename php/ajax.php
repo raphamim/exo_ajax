@@ -5,12 +5,14 @@ define('DSN', 'mysql:host=localhost;dbname=chat');
 define('USER', 'root');
 define('MDP', '');
 
-
-
+session_start();
+echo $_SESSION['pseudo'];
 
 
 
  Class Ajax {
+ 
+
 
 	public function getMessage() {
 			 	try {
@@ -30,9 +32,13 @@ define('MDP', '');
 			 fwrite($file, $datas);
 			 fclose($file);	
  	}
+ 	// public function getPseudo($post) {
+ 	// 	echo json_encode($post);
+ 	// 	$this->current_user = $post;
+ 	// }
 
  	public function sendMessage() {
- 		$author = 'userTest';
+ 		$author = $_SESSION['pseudo'];
  		$content = $_POST['message'];
  		$now = date("Y-m-d H:i:s");
 
@@ -44,7 +50,7 @@ define('MDP', '');
 
 		if ( !empty($_POST['message']) ) {
 			// POUR TESTER
-			echo json_encode($_POST['message']);
+			// echo json_encode($_POST['message']);
 			// INSERE DS LA BDD
 				$sent= $pdo->prepare('INSERT INTO `message` ( `author`, `content`, `date_mess`) VALUES ( :author, :content, :date_mess)' );
 				$sent->execute(array(
@@ -54,7 +60,7 @@ define('MDP', '');
 					));
 				self::getMessage();
 		}
-		
+
 	}
 
  	

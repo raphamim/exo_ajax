@@ -11,6 +11,7 @@
 		<section id="welcome">
 			<h1> Bienvenue sur le Chat Bot</h1>
 			<img src="img/chat.png">
+			<input type="text" id="pseudo" placeholder="pseudo">
 		</section>	
 
 		<section id="chat">
