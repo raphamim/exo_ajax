@@ -5,6 +5,9 @@ function appendMessage(element) {
 function getDatas() {
 	$.ajax({
 		url: "php/ajax.php",
+		data: {
+			function: 'getMessage'
+		}
 	}).done(function(data){
 		console.log('reussi');
 	}).fail(function(){
@@ -37,6 +40,7 @@ function showLastDatas() {
 		console.log(last);
 		appendMessage(last);
 		$("#chat-block").animate({ scrollTop: $('#chat-block').prop("scrollHeight")}, 500);
+
 		
 	}).fail(function(){
 		console.log('fail');
@@ -55,6 +59,7 @@ function sendDatas() {
 	}).done(function(data){
 		console.log(data);
 		showLastDatas();
+
 		// var last = data[0];
 		// appendMessage(last);
 		// $("#chat-block").animate({ scrollTop: $('#chat-block').prop("scrollHeight")}, 500);
@@ -78,9 +83,11 @@ $(document).ready(function() {
 
 	$('#message').keypress(function(event) {
 		if (event.keyCode == 13) {
+			
 			sendDatas();
-
-
+			//vider le champs
+			$('#message').val('');
+			
 
 		}
 	});

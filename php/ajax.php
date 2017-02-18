@@ -5,14 +5,22 @@ define('DSN', 'mysql:host=localhost;dbname=chat');
 define('USER', 'root');
 define('MDP', '');
 
-try {
-	$pdo = new PDO(DSN, USER, MDP);
-} catch (Exception $e) {
-	echo 'La bdd est indisponible';
-}
 
 
-$query = 'SELECT * FROM message';
+
+
+
+ Class Ajax {
+
+	public function getMessage() {
+			 	try {
+					$pdo = new PDO(DSN, USER, MDP);
+				} catch (Exception $e) {
+					echo 'La bdd est indisponible';
+				}
+
+
+			$query = 'SELECT * FROM message';
 
 			$result = $pdo->query($query);
 
@@ -20,12 +28,9 @@ $query = 'SELECT * FROM message';
 			$file = fopen('message.json', 'w+');
 			 // fseek($file, O);
 			 fwrite($file, $datas);
-			 fclose($file);
+			 fclose($file);	
+ 	}
 
-
-
-
- Class Ajax {
  	public function sendMessage() {
  		$author = 'userTest';
  		$content = $_POST['message'];
@@ -47,16 +52,16 @@ $query = 'SELECT * FROM message';
 						'content' =>  $content,
 						'date_mess' => $now
 					));
-
+				self::getMessage();
 		}
+		
 	}
 
- 	// public function getMessage() {
-			 		
- 	// }
+ 	
 
  }
 $ajax = new Ajax();
+$ajax->getMessage();
 $ajax->sendMessage();
 	
 
