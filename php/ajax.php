@@ -1,19 +1,17 @@
 <?php 
+//On appelle la def de la base
+include '../partial/pdo.php';
 
-
-define('DSN', 'mysql:host=localhost;dbname=chat');
-define('USER', 'root');
-define('MDP', '');
-
+// on demarre la session pour récuperer le cookie
 session_start();
-echo $_SESSION['pseudo'];
+// echo $_SESSION['pseudo'];
 
 
 
  Class Ajax {
  
 
-
+ 	// on recup les données de la bdd
 	public function getMessage() {
 			 	try {
 					$pdo = new PDO(DSN, USER, MDP);
@@ -32,11 +30,7 @@ echo $_SESSION['pseudo'];
 			 fwrite($file, $datas);
 			 fclose($file);	
  	}
- 	// public function getPseudo($post) {
- 	// 	echo json_encode($post);
- 	// 	$this->current_user = $post;
- 	// }
-
+ 	// on envoie les données vers la bdd
  	public function sendMessage() {
  		$author = $_SESSION['pseudo'];
  		$content = $_POST['message'];
@@ -66,6 +60,7 @@ echo $_SESSION['pseudo'];
  	
 
  }
+ 
 $ajax = new Ajax();
 $ajax->getMessage();
 $ajax->sendMessage();

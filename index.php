@@ -9,12 +9,13 @@
 
 		<body>
 		<section id="welcome">
-			<h1> Bienvenue sur le Chat Bot</h1>
+			<h1> Bienvenue sur le Chat</h1>
 			<img src="img/chat.png">
 			<input type="text" id="pseudo" placeholder="pseudo">
 		</section>	
 
 		<section id="chat">
+		<a href="index.php"><img src="img/chat.png"></a>
 				<div id="chat-block">
 					
 
