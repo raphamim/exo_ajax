@@ -63,18 +63,18 @@ text-align: center;
     overflow: hidden;
     clear: both;
 }
-.trois-points {
+#typing {
     width: 7%;
 margin: auto;
 border: solid 1px;
 border-radius: 2em;
 font-weight: bold;
+display: none;
 
 }
-.trois-points p {
-    font-size: 2em;
-}
-
+/*#typing p {
+    display: none;
+}*/
 #chat img {
     width: 3%;
 }

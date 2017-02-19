@@ -108,14 +108,22 @@ $(document).ready(function() {
 
 
 	$('#message').keypress(function(event) {
+			$('#typing').show("fast");
+				
+
 		if (event.keyCode == 13) {
-			
-			
+	
+			$('#typing').hide();
 			sendDatas();
 			//vider le champs
 			$('#message').val('');
 		}
+		if ($('#message').val().length == 1) {
+					$('#typing').hide();
+				}
+
 	});
+
 });
 
 
