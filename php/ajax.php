@@ -2,9 +2,9 @@
 //On appelle la def de la base
 include '../partial/pdo.php';
 
+
 // on demarre la session pour récuperer le cookie
 session_start();
-// echo $_SESSION['pseudo'];
 
 
 

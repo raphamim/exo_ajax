@@ -1,5 +1,6 @@
 <?php 
 	session_start();
+	
  ?>
 <!DOCTYPE html>
 	<html>
@@ -20,7 +21,7 @@
 		<section id="chat">
 		<a href="index.php"><img src="img/chat.png"></a>
 			<div id="typing">
-						<p id="type"><?= $_SESSION['pseudo'];?> is typing...</p>
+						<p id="type"></p>
 			</div>
 				<div id="chat-block">
 					

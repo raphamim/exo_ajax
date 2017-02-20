@@ -9,4 +9,6 @@ if (!empty($_POST['message'])) {
 			$_SESSION['pseudo'] = "anonymous";
 		}
 
-		// echo json_encode($_POST['message']);
+setcookie('pseudo', $_SESSION['pseudo'], time() + 365*24*3600);
+
+echo json_encode($_POST['message']);

@@ -13,10 +13,11 @@ function sendCookie() {
 		},
 		method: "POST"
 	}).done(function(data){
-	
 		// console.log('envoi du cookie ok !');
-		$('#welcome').hide();
-		$('#chat').show();
+		console.log(data);
+			$('#welcome').hide();
+		 	$('#chat').show();
+		 	$('#typing').html(data+' is typing...');
 		// console.log(data);
 	}).fail(function(){
 		console.log('erreur envoie du cookie');
@@ -81,10 +82,15 @@ function sendDatas() {
 	}).done(function(data){
 		// console.log(data);
 		showLastDatas();
+
+
 	}).fail(function(){
 		console.log('erreur envoies de données');
+
 	});
 }
+
+
 
 getDatas();
 refreshDatas();
@@ -95,6 +101,8 @@ $(document).ready(function() {
 		if (event.keyCode == 13) {
 			//verif si les cookies sont pas désactivé
 			if (navigator.cookieEnabled) {
+				
+
 					$('#welcome img').animate({ 'width': '-=40%'}, 5000);
 					$('#welcome h1').animate({ 'border-bottom-left-radius': '+=100%', 'border-bottom-right-radius': '+=100%'}, 2000);
 					// $('#welcome h1').animate({ 'border-bottom-right-radius': '+=100%'}, 2000);
@@ -102,6 +110,7 @@ $(document).ready(function() {
 					// console.log('cookies autorisés');
 			} else {
 				alert('Veuillez activer vos cookies pour continuer !');
+				document.location.href = 'index.php';
 			}
 		}
 	});
@@ -117,6 +126,7 @@ $(document).ready(function() {
 			sendDatas();
 			//vider le champs
 			$('#message').val('');
+
 		}
 		if ($('#message').val().length == 1) {
 					$('#typing').hide();
