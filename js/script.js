@@ -17,7 +17,9 @@ function sendCookie() {
 		console.log(data);
 			$('#welcome').hide();
 		 	$('#chat').show();
-		 	$('#typing').html(data+' is typing...');
+		 	var prePseudo = data.replace('"', '');
+		 	var pseudo = prePseudo.replace('"', '');
+		 	$('#typing').html(pseudo+' is typing...');
 		// console.log(data);
 	}).fail(function(){
 		console.log('erreur envoie du cookie');
