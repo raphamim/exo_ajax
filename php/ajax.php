@@ -33,7 +33,7 @@ session_start();
  	// on envoie les données vers la bdd
  	public function sendMessage() {
  		$author = $_SESSION['pseudo'];
- 		$content = $_POST['message'];
+ 		$content = htmlspecialchars($_POST['message']);
  		$now = date("Y-m-d H:i:s");
 
  			try {
