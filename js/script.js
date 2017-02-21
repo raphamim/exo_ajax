@@ -92,7 +92,9 @@ function sendDatas() {
 	});
 }
 
-
+function stopTyping() {
+$('#typing').hide();
+}
 
 getDatas();
 refreshDatas();
@@ -124,16 +126,17 @@ $(document).ready(function() {
 
 		if (event.keyCode == 13) {
 	
-			$('#typing').hide();
+			stopTyping();
 			sendDatas();
 			//vider le champs
 			$('#message').val('');
 
 		}
 		if ($('#message').val().length == 1) {
-					$('#typing').hide();
+					stopTyping();
 				}
-
+		setTimeout(stopTyping, 10000);
+		clearTimeout();
 	});
 
 });
